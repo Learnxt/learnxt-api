@@ -80,13 +80,13 @@ async def class_agent(userPrompt,agent_type):
                         data_dict = json.loads(output)
                     # print("Updated state:", isinstance(data_dict, dict))
                         if isinstance(data_dict, dict):
-                        # initial_state.update(data_dict)
-                        #     ppt_generate_instance = ppt_generate_class(
-                        #     no_of_slides=data_dict.get('no_of_slides', 0),
-                        #     topic_name=data_dict.get('topic_name', ''),
-                        #     title=data_dict.get('title', ''),
-                        #     content=data_dict.get('content', '')
-                        # ).generate_ppt()
+                            # initial_state.update(data_dict)
+                            ppt_generate_instance = ppt_generate_class(
+                            no_of_slides=data_dict.get('no_of_slides', 0),
+                            topic_name=data_dict.get('topic_name', ''),
+                            title=data_dict.get('title', ''),
+                            content=data_dict.get('content', '')
+                        ).generate_ppt()
                             print("Updated state:", isinstance(data_dict, dict))
                         print("Updated state:", isinstance(data_dict, dict))
 
@@ -104,13 +104,13 @@ async def class_agent(userPrompt,agent_type):
                     # print("Updated state:", isinstance(data_dict, dict))
                         if isinstance(data_dict, dict):
                         # initial_state.update(data_dict)
-                            ppt_generate_instance = ppt_generate_class(
-                            no_of_slides=data_dict.get('no_of_slides', 0),
-                            topic_name=data_dict.get('topic_name', ''),
-                            title=data_dict.get('title', ''),
-                            content=data_dict.get('content', '')
-                        ).generate_ppt()
-                        print("Updated state:", isinstance(data_dict, dict))
+                        #     ppt_generate_instance = ppt_generate_class(
+                        #     no_of_slides=data_dict.get('no_of_slides', 0),
+                        #     topic_name=data_dict.get('topic_name', ''),
+                        #     title=data_dict.get('title', ''),
+                        #     content=data_dict.get('content', '')
+                        # ).generate_ppt()
+                            print("Updated state:", isinstance(data_dict, dict))
 
 
                     except Exception as e:
