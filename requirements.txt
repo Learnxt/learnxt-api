@@ -1,6 +1,6 @@
-fastapi
+# fastapi
 google-adk
 supabase
 python-dotenv
 python-pptx
-# fastapi[standard]
+"fastapi[standard]"
