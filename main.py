@@ -1,37 +1,24 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
+from agents.call_agent import create_sections,class_agent
 
 app = FastAPI(
-    title="Vercel + FastAPI",
-    description="Vercel + FastAPI",
-    version="1.0.0",
+    title="LearnXT-API",
+    description="LearnXT-API for ai generate content",
+    version="0.1.0",
 )
 
+@app.get('/')
+def createsection():
+    create_sections()
 
-@app.get("/api/data")
-def get_sample_data():
-    return {
-        "data": [
-            {"id": 1, "name": "Sample Item 1", "value": 100},
-            {"id": 2, "name": "Sample Item 2", "value": 200},
-            {"id": 3, "name": "Sample Item 3", "value": 300}
-        ],
-        "total": 3,
-        "timestamp": "2024-01-01T00:00:00Z"
-    }
+@app.get('chat/{agent_type}/{promt}')
+def leanxt(agent_type:int,promt:str):
+    agent_types=['doubt_clear','ppt']
+    class_agent(promt,agent_type=agent_types[agent_type])
+    pass
 
-
-@app.get("/api/items/{item_id}")
-def get_item(item_id: int):
-    return {
-        "item": {
-            "id": item_id,
-            "name": "Sample Item " + str(item_id),
-            "value": item_id * 100
-        },
-        "timestamp": "2024-01-01T00:00:00Z"
-    }
 
 
 @app.get("/", response_class=HTMLResponse)
