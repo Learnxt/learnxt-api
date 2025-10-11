@@ -16,7 +16,7 @@ def createsection():
 @app.get('chat/{agent_type}/{promt}')
 def leanxt(agent_type:int,promt:str):
     agent_types=['doubt_clear','ppt']
-    class_agent(promt,agent_type=agent_types[agent_type])
+    return class_agent(promt,agent_type=agent_types[agent_type])
     pass
 
 
