@@ -74,7 +74,7 @@ async def class_agent(userPrompt,agent_type):
         if agent_type=='ppt':
             if event.is_final_response():
                 if event.content and event.content.parts:
-                    print(f"Final Response: {event.content.parts[0].text}")
+                    # print(f"Final Response: {event.content.parts[0].text}")
                     try:
                         output = event.content.parts[0].text
                         data_dict = json.loads(output)
@@ -89,15 +89,17 @@ async def class_agent(userPrompt,agent_type):
                         ).generate_ppt()
                             print("Updated state:", isinstance(data_dict, dict))
                         print("Updated state:", isinstance(data_dict, dict))
+                        # return output
 
 
                     except Exception as e:
                         print(f"Error parsing output: {e}"),
+                    return output
     
         elif agent_type == 'doubt_clear':
             if event.is_final_response():
                 if event.content and event.content.parts:
-                    print(f"Final Response: {event.content.parts[0].text}")
+                    # print(f"Final Response: {event.content.parts[0].text}")
                     try:
                         output = event.content.parts[0].text
                         data_dict = json.loads(output)
@@ -115,6 +117,7 @@ async def class_agent(userPrompt,agent_type):
 
                     except Exception as e:
                         print(f"Error parsing output: {e}")
+                    return output
         
 
     print("==== Session Event Exploration ====")
@@ -123,6 +126,6 @@ async def class_agent(userPrompt,agent_type):
     )
 
     # Log final Session state
-    print("=== Final Session State ===")
-    for key, value in session.state.items():
-        print(f"{key}: {value}")
+    # print("=== Final Session State ===")
+    # for key, value in session.state.items():
+    #     print(f"{key}: {value}")

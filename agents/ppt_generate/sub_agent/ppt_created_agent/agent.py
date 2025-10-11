@@ -24,5 +24,7 @@ ppt_created_agent = Agent(
             {content}: [],
     ''',
     # tools=[...],
-    output_schema=ppt_created_agent_class
+    output_schema=ppt_created_agent_class,
+    disallow_transfer_to_parent=True,
+    disallow_transfer_to_peers=True
 )

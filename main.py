@@ -10,14 +10,17 @@ app = FastAPI(
 )
 
 @app.get('/')
-def createsection():
-    create_sections()
+async def createsection():
+    await create_sections()
 
-@app.get('chat/{agent_type}/{promt}')
-def leanxt(agent_type:int,promt:str):
+@app.get('/chat/{agent_type}/{promt}')
+async def leanxt(agent_type:int,promt:str):
     agent_types=['doubt_clear','ppt']
-    return class_agent(promt,agent_type=agent_types[agent_type])
-    pass
+    await create_sections()
+    response_data = await class_agent(promt,agent_type=agent_types[agent_type])
+    print(f"result:{response_data}")
+    return response_data
+
 
 
 
